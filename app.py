@@ -1,13 +1,14 @@
 from flask import Flask, render_template, jsonify
 import database as db
+import format
 
 app = Flask(__name__)
 
 
 # API
 @app.route('/api/get_users')
-def test():
-    users = db.get_users()
+def get_users():
+    users = format.users_to_dict(db.get_users())
     return jsonify(users)
 
 
