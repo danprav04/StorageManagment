@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 # API
 @app.route('/api/test')
-def hello_world():
+def test():
     return jsonify({'response': 'success'})
 
 
