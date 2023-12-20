@@ -1,6 +1,12 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, jsonify
 
 app = Flask(__name__)
+
+
+# API
+@app.route('/api/test')
+def hello_world():
+    return jsonify({'response': 'success'})
 
 
 @app.route('/')
