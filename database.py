@@ -24,14 +24,16 @@ def one_session(func):
 
 @one_session
 def create_user(session, username, password, email):
-    new_user = User(username=username, password=password, email=email)
-    session.add(new_user)
-    session.commit()
+    try:
+        new_user = User(username=username, password=password, email=email)
+        session.add(new_user)
+        session.commit()
+        return 'success'
+    except Exception as e:
+        return str(e)
 
 
 @one_session
 def get_users(session):
     users = session.query(User).all()
-    for user in users:
-        print(f"ID: {user.id}, Username: {user.username}, Password: {user.password}, Email: {user.email}")
-
+    return users
