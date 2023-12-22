@@ -23,6 +23,7 @@ class StoragePlace(Base):
     image = Column(String)
 
     storage_grids = relationship("StorageGrid", backref="storage_place", lazy="dynamic")
+    storage_units = relationship("StorageUnit", backref="storage_place", lazy="dynamic")
 
 
 class StorageGrid(Base):
