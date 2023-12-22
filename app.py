@@ -106,9 +106,14 @@ def create_storage_unit():
 
 # WEB PAGES
 @app.route('/')
-def hello_world():
-    return render_template('index.html')
+def index():
+    title = 'Home'
+
+    return render_template('list_page.html',
+                           title=title,
+                           header_text=title
+                           )
 
 
 if __name__ == '__main__':
-    app.run('0.0.0.0')
+    app.run(host='0.0.0.0')

@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ title }}{% endblock %}
+{% block header_text %}{{ header_text }}{% endblock %}
+
+{% block content %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/list_page.css') }}">
+
+    <div id="list">
+        <section>
+            <img src="" alt="">
+            <h2></h2>
+            <p></p>
+        </section>
+    </div>
+
+{% endblock %}
