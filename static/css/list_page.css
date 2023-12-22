@@ -1,0 +1,41 @@
+#list > section {
+    position: relative;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    padding: 10px;
+    margin-top: 10px;
+
+    transition: transform 0.4s ease;
+}
+
+#list > section:hover {
+    transform: scale(1.005);
+    cursor: pointer;
+}
+
+#list > section > img {
+    height: 100px;
+    width: 100px;
+    object-fit: cover;
+    border-radius: 3px;
+}
+
+#list > section > h2 {
+    position: absolute;
+    top: 0px;
+    left: 130px;
+}
+
+#list > section > p {
+    position: absolute;
+    top: 40px;
+    left: 130px;
+}
+
+#list > hr {
+    border: 0;
+    height: 1px;
+    background: linear-gradient(to right, transparent, #ccc, transparent);
+    margin: 10px 0;
+}
