@@ -5,6 +5,7 @@ from models import Base, User, StoragePlace, StorageGrid, StorageUnit
 
 
 engine = create_engine('sqlite:///StorageManagement.db')
+# engine = create_engine('postgresql://default:f5KMDBeHtPX9@ep-bitter-violet-01247810.us-east-1.postgres.vercel-storage.com:5432/verceldb')
 Base.metadata.create_all(engine)
 
 Session = sessionmaker(bind=engine)
