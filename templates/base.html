@@ -7,6 +7,9 @@
 
     <link rel="stylesheet" href="{{ url_for('static', filename='css/darkmode.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/header.css') }}">
+
+    <script src="{{ url_for('static', filename='js/api_request_funcs.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/db.js') }}"></script>
 </head>
 <body>
     <header id="page_header">
@@ -16,8 +19,5 @@
     <div id="content">
         {% block content %}{% endblock %}
     </div>
-
-    <script src="{{ url_for('static', filename='js/api_request_funcs.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/db.js') }}"></script>
 </body>
 </html>

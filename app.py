@@ -111,7 +111,8 @@ def index():
 
     return render_template('list_page.html',
                            title=title,
-                           header_text=title
+                           header_text=title,
+                           list_type='storage_places'
                            )
 
 
