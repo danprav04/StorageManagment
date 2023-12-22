@@ -144,7 +144,8 @@ def create_storage_unit(session, name, description, image, storage_place_id, sto
     if storage_place:
         storage_grid = storage_place.storage_grids.filter_by(id=storage_grid_id).first()
 
-        # TODO: Make a check for storage grid row and column, they shouldn't be larger then those in the grid.
+        if storage_grid.row_count < storage_grid_row or storage_grid.column_count < storage_grid_column or storage_grid_row < 0 or storage_grid_column < 0:
+            return "Storage grid row or column are not valid."
 
         if storage_grid:
             new_storage_unit = StorageUnit(
@@ -188,10 +189,6 @@ def delete_storage_unit_by_id(session, storage_unit_id):
     else:
         return 'Storage Unit not found'
 
-
-# create_storage_place('sp3', 'nowhere', 'some_image_name')
-# create_storage_grid('right wall', 'Its just there on the right', 2, 1, 'image of a wall i guess', 2)
-# create_storage_unit("Box 009", "Small storage box", "/path/to/box__image.jpg", 2, 3, 1, 1)
 
 def print_storage():
     storage_places = Session().query(StoragePlace).all()
