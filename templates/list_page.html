@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ title }}{% endblock %}
+{% block header_text %}{{ header_text }}{% endblock %}
+
+{% block content %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/list_page.css') }}">
+
+    <div id="list">
+        <section>
+            <img src="{{ url_for('static', filename='pictures/storage_places/test_place.jpg') }}" alt="elem_pic">
+            <h2>Some Title</h2>
+            <p>Something written here as a description.</p>
+        </section>
+        <hr>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/load_list.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,15 @@
+#page_header {
+    height: auto;
+
+    padding: 5px;
+
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px black;
+}
+
+#page_header > h1 {
+    text-align: center;
+    text-transform: uppercase;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
