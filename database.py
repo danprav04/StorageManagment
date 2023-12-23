@@ -3,8 +3,12 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from models import Base, User, StoragePlace, StorageGrid, StorageUnit
 
-
+# Development DB
 engine = create_engine('sqlite:///StorageManagement.db')
+
+# Production DB
+# engine = create_engine('postgresql://default:f5KMDBeHtPX9@ep-bitter-violet-01247810.us-east-1.postgres.vercel-storage.com:5432/verceldb')
+
 Base.metadata.create_all(engine)
 
 Session = sessionmaker(bind=engine)
@@ -144,10 +148,10 @@ def create_storage_unit(session, name, description, image, storage_place_id, sto
     if storage_place:
         storage_grid = storage_place.storage_grids.filter_by(id=storage_grid_id).first()
 
-        if storage_grid.row_count < storage_grid_row or storage_grid.column_count < storage_grid_column or storage_grid_row < 0 or storage_grid_column < 0:
-            return "Storage grid row or column are not valid."
-
         if storage_grid:
+            if storage_grid.row_count < storage_grid_row or storage_grid.column_count < storage_grid_column or storage_grid_row < 0 or storage_grid_column < 0:
+                return "Storage grid row or column are not valid."
+
             new_storage_unit = StorageUnit(
                 name=name,
                 description=description,

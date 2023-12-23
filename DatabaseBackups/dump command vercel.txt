@@ -1,0 +1,1 @@
+pg_dump "postgres://default:f5KMDBeHtPX9@ep-bitter-violet-01247810.us-east-1.postgres.vercel-storage.com:5432/verceldb" > your_dump_file.sql
