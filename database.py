@@ -194,6 +194,24 @@ def delete_storage_unit_by_id(session, storage_unit_id):
         return 'Storage Unit not found'
 
 
+@one_session
+def get_storage_units_by_place_id(session, storage_place_id):
+    storage_units = session.query(StorageUnit).filter_by(storage_place_id=storage_place_id).all()
+    return storage_units
+
+
+@one_session
+def get_storage_grids_by_place_id(session, storage_place_id):
+    storage_grids = session.query(StorageGrid).filter_by(storage_place_id=storage_place_id).all()
+    return storage_grids
+
+
+@one_session
+def get_storage_units_by_grid_id(session, storage_grid_id):
+    storage_units = session.query(StorageUnit).filter_by(storage_grid_id=storage_grid_id).all()
+    return storage_units
+
+
 def print_storage():
     storage_places = Session().query(StoragePlace).all()
     for storage_place in storage_places:

@@ -15,8 +15,8 @@ def get_users():
 
 @app.route(f'{api_path}/get_storage_places')
 def get_storage_places():
-    storage_places = format.storage_places_to_dict(db.get_storage_places())
-    return jsonify(storage_places)
+    storage_places_ = format.storage_places_to_dict(db.get_storage_places())
+    return jsonify(storage_places_)
 
 
 @app.route(f'{api_path}/get_storage_grids')
@@ -104,15 +104,67 @@ def create_storage_unit():
         return jsonify({'error': str(e)}), 500
 
 
+@app.route(f'{api_path}/get_storage_units_by_place_id/<int:storage_place_id>')
+def get_storage_units_by_place_id(storage_place_id):
+    try:
+        storage_units = db.get_storage_units_by_place_id(storage_place_id)
+        storage_units_dict = format.storage_units_to_dict(storage_units)
+        return jsonify(storage_units_dict)
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+
+@app.route(f'{api_path}/get_storage_grids_by_place_id/<int:storage_place_id>')
+def get_storage_grids_by_place_id(storage_place_id):
+    try:
+        storage_grids = db.get_storage_grids_by_place_id(storage_place_id)
+        storage_grids_dict = format.storage_grids_to_dict(storage_grids)
+        return jsonify(storage_grids_dict)
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+
+@app.route(f'{api_path}/get_storage_units_by_grid_id/<int:storage_grid_id>')
+def get_storage_units_by_grid_id(storage_grid_id):
+    try:
+        storage_units = db.get_storage_units_by_grid_id(storage_grid_id)
+        storage_units_dict = format.storage_units_to_dict(storage_units)
+        return jsonify(storage_units_dict)
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+
 # WEB PAGES
 @app.route('/')
-def index():
-    title = 'Home'
+def storage_places():
+    title = 'Storage Places'
 
     return render_template('list_page.html',
                            title=title,
                            header_text=title,
                            list_type='storage_places'
+                           )
+
+
+@app.route('/storage_place')
+def storage_place():
+    title = 'Storage Place'
+
+    return render_template('list_page.html',
+                           title=title,
+                           header_text=title,
+                           list_type='storage_grids'
+                           )
+
+
+@app.route('/storage_grid')
+def storage_grid():
+    title = 'Storage Grid'
+
+    return render_template('list_page.html',
+                           title=title,
+                           header_text=title,
+                           list_type='storage_units'
                            )
 
 

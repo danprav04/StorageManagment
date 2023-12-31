@@ -55,3 +55,21 @@ async function getStorageUnits() {
     const url = `${api_path}/get_storage_units`;
     return async_get_request(url)
 }
+
+// Get Storage Grids by Storage Place ID
+async function getStorageGridsByPlaceId(storagePlaceId) {
+    const url = `${api_path}/get_storage_grids_by_place_id/${storagePlaceId}`;
+    return async_get_request(url);
+}
+
+// Get Storage Units by Storage Place ID
+async function getStorageUnitsByPlaceId(storagePlaceId) {
+    const url = `${api_path}/get_storage_units_by_place_id/${storagePlaceId}`;
+    return async_get_request(url);
+}
+
+// Get Storage Units by Storage Grid ID
+async function getStorageUnitsByGridId(storageGridId) {
+    const url = `${api_path}/get_storage_units_by_grid_id/${storageGridId}`;
+    return async_get_request(url);
+}
