@@ -25,17 +25,19 @@
     position: absolute;
     top: 0px;
     left: 130px;
+    color: var(--copy-light);
 }
 
 #list > section > p {
     position: absolute;
     top: 40px;
     left: 130px;
+    color: var(--copy);
 }
 
 #list > hr {
     border: 0;
     height: 1px;
-    background: linear-gradient(to right, transparent, #ccc, transparent);
+    background: linear-gradient(to right, transparent, var(--copy), transparent);
     margin: 10px 0;
 }

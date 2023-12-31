@@ -1,10 +1,10 @@
 /* https://colorhunt.co/palette/0a26471442722052952c74b3 */
 
 body {
-    background-color: #0A2647;
-    color: #ffffff;
+    background-color: var(--background);
+    color: var(--copy);
 }
 
 #page_header {
-    background: #144272;
+    background: var(--primary-dark);
 }
